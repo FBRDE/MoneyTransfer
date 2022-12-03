@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout}"
+>
+  <body>
+    <div layout:fragment="content" class="d-flex flex-column">
+      <div class="d-flex flex-column my-5 align-self-center">
+
+
+        <div class="mt-2">
+          <p>My Transactions</p>
+          <table class="table table-striped text-center">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Connection</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="t:${transferList}">
+              <th th:text="${t.id}" scope="row"></th>
+              <th th:text="${t.connection}"></th>
+              <td th:text="${t.description}"></td>
+              <td th:text="${t.amount}+' €'"></td>
+              <td th:text="${t.date}"></td>
+            </tr>
+            </tbody>
+          </table>
+          <div>
+            <ul class="nav nav-pills justify-content-center">
+              <li class="nav-item border border-1">
+                <a
+                        th:class="nav-link"
+                        th:with="previousPage=${currentPage==0?currentPage:currentPage-1}"
+                        th:href="@{/home(page=${previousPage})}"
+                >&#60&#60</a>
+              </li>
+              <li class="nav-item border border-1" th:each="page, status:${pagesCount}">
+                <a
+                        th:class="'nav-link '+${currentPage==status.index?'active':''}"
+                        th:href="@{/home(page=${status.index})}"
+                        th:with="pageNumber=${status.index+1}"
+                        th:text="${pageNumber}"
+                ></a>
+              </li>
+              <li class="nav-item border border-1">
+                <a
+                        th:class="nav-link"
+                        th:with="nextPage=${currentPage+1>=pagesCount.length?currentPage:currentPage+1}"
+                        th:href="@{/home(page=${nextPage})}"
+                >&#62&#62</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

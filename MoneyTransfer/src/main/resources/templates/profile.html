@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+<body>
+<div layout:fragment="content" class="d-flex flex-column">
+  <div class="d-flex flex-column my-5 align-self-left">
+
+    <div class="mt-2">
+      <p>My profile</p>
+      <div
+              class="alert alert-danger p-1 mt-4"
+              role="alert"
+              th:text="${error}"
+              th:if="${error}"
+      ></div>
+      <div
+              class="alert alert-success p-1 mt-4"
+              role="alert"
+              th:text="${success}"
+              th:if="${success}"
+      ></div>
+      <table class="table table-striped text-left">
+
+        <tbody>
+        <tr >
+          <th >Email</th>
+          <th th:text="${user.email}"></th>
+        </tr>
+        <tr >
+          <th >First name</th>
+          <th th:text="${user.firstName}"></th>
+        </tr>
+        <tr >
+          <th >Last name</th>
+          <th th:text="${user.lastName}"></th>
+        </tr>
+        <tr >
+          <th >SWIFT</th>
+          <th th:text="${user.swift}"></th>
+        </tr>
+        <tr >
+          <th >Account number</th>
+          <th th:text="${user.accountNumber}"></th>
+        </tr>
+
+        <tr >
+          <th >Balance</th>
+          <th th:text="${user.balance}"></th>
+        </tr>
+
+        <tr >
+          <th >Address</th>
+          <th th:text="${user.address}"></th>
+        </tr>
+
+        <tr >
+          <th >Phone</th>
+          <th th:text="${user.phone}"></th>
+        </tr>
+
+        </tbody>
+      </table>
+      <a class="btn btn-primary px-4 py-1" th:href="@{/user/modify}">Modify</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

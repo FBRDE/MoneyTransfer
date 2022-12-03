@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" monitorInterval="5"> <!-- status:error mean ONLY show log4j kernel's error log in console-->
+        <Properties>
+                <Property name="APP_LOG_ROOT">Logs</Property>
+        </Properties>
+        <Appenders>
+                <Console name="Console" target="SYSTEM_OUT">
+                        <PatternLayout pattern="[%-5level] %d{dd-MM-yyyy HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+                </Console>
+                <RollingFile name="fileLogger" fileName="logs/info.log" filePattern="logs/info-%d{yyyy-MM-dd}.log">
+                        <!-- Except Error -->
+                        <ThresholdFilter level="error" onMatch="DENY" onMismatch="ACCEPT"/>
+                        <PatternLayout>
+                                <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%t] %level %logger{36} - %msg%n</pattern>
+                        </PatternLayout>
+                        <Policies>
+                                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                        </Policies>
+                </RollingFile>
+                <RollingFile name="errorLogger" fileName="logs/error.log" filePattern="logs/error-%d{yyyy-MM-dd}.log">
+                        <PatternLayout>
+                                <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%t] %level %logger{36} - %msg%n</pattern>
+                        </PatternLayout>
+                        <Policies>
+                                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                        </Policies>
+                </RollingFile>
+        </Appenders>
+        <Loggers>
+                <Root level="info" >
+                        <AppenderRef ref="Console" level="info" />
+                        <AppenderRef ref="fileLogger" level="info" />
+                        <AppenderRef ref="errorLogger" level="error" />
+                        <AppenderRef ref="Console" level="error" />
+
+                </Root>
+        </Loggers>
+</Configuration>
