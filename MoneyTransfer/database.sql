@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `moneytransfer` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `moneytransfer`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: moneytransfer
@@ -113,7 +115,7 @@ CREATE TABLE `transaction` (
   KEY `receiver_idx` (`receiver`),
   CONSTRAINT `receiver` FOREIGN KEY (`receiver`) REFERENCES `user` (`id`),
   CONSTRAINT `sender` FOREIGN KEY (`sender`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +149,7 @@ CREATE TABLE `user` (
   `account_number` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +158,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'fatima@gmail.com','$2a$10$ByhI.MnM8yzpgCGnS6YrIunKaJhE4./JnG6jAQa7.mEi2wZWxs4AS','Fatima','Bar',NULL,'Address','phone',7,'',''),(2,'john@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','John','Donales','2010-06-11','adress 2','pp',144,NULL,NULL),(3,'aa@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Arnauld','last','2010-05-11','Address 3','yy',42,NULL,NULL),(4,'jonathan@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Jonathan','Morisky','2010-05-11','Address 4','dfd',89,NULL,NULL),(5,'najat@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Najat','Lili','2010-05-12','Address 5','gjg',44,NULL,NULL),(6,'noura@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Noura','Mimi','2010-05-12','Address 6','fh',45,NULL,NULL),(7,'asma@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','asma','Lifti','2022-07-20','Adress 7','dsf',10,NULL,NULL),(8,'anas@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','anas','Bouda','2022-07-20','Adress 8','fdsdf',20,NULL,NULL),(9,'salma@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','salma','Nounou','2022-07-20','Adress 9','fsf',30,NULL,NULL),(10,'zak@gmail.com','$2a$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','zak',NULL,NULL,NULL,NULL,0,NULL,NULL),(15,'new1@gmail.com','$2a$10$ENSAHfeEEDq9ftD5OKIaA.70t2NAk6kvxoIPFIPXB9NxIBx6Teu5u','new1',NULL,NULL,NULL,NULL,0,NULL,NULL),(17,'bb@gmail.com','$2a$10$eMe/yZUH0RtP6UiHq4gyZeVo7Wiqh7w82B85Zhei2xzrTO5etqpJi','b',NULL,NULL,NULL,NULL,0,NULL,NULL),(22,'f@gmail.com','$2a$10$9KN4O.KfQuVZobWAHpqtoeH3smsAB3Uehuj56BpIB9cSAGlXN47Pm','f','ffff',NULL,NULL,NULL,0,NULL,NULL),(23,'aa@aa.com','$2a$10$R8IPt0ppmIH2eApe/1X97.r2ShxXvXaocpKNNnbB0jpuTNsmaSroK','aamodm2','bbmod2',NULL,'adress33mod2','05226699882',70,'swift2','1234562'),(24,'zz@zz.com','$2a$10$JhmWrclroophsmEocqEhwupFDzYgcpKD/i6r4J5W.qvUprCSh14.G','zizou',NULL,NULL,NULL,NULL,0,NULL,NULL),(37,'sophie@gmail.com','$2a$10$efyInKktIL0pf96bTr0u3ew/d5G9Q8pxHySMkHEASo/AHi5.Nlp2i','sophie','',NULL,'','',13,'',''),(38,'alice@gmail.com','$2a$10$kMJIEBZ52YrOYM1p9GlMwu9XOOADhJ20jmavdPCFogK.dqMfClNPC','Alice','Nada',NULL,'','',92,'',''),(39,'email@gmail.com','$2a$10$zv2vsOZDJAntOWXFhLTh.OX1m4gFjliQzbcZXEwjy10EYEaXcVKDi','first','last',NULL,NULL,NULL,0,NULL,NULL),(42,'moncomptepro.fb@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL);
+INSERT INTO `user` VALUES (1,'fatima1@gmail.com','$2a$10$ByhI.MnM8yzpgCGnS6YrIunKaJhE4./JnG6jAQa7.mEi2wZWxs4AS','Fatima','Bar',NULL,'Address','phone',7,'',''),(2,'john@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','John','Donales','2010-06-11','adress 2','pp',144,NULL,NULL),(3,'aa@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Arnauld','last','2010-05-11','Address 3','yy',42,NULL,NULL),(4,'jonathan@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Jonathan','Morisky','2010-05-11','Address 4','dfd',89,NULL,NULL),(5,'najat@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Najat','Lili','2010-05-12','Address 5','gjg',44,NULL,NULL),(6,'noura@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','Noura','Mimi','2010-05-12','Address 6','fh',45,NULL,NULL),(7,'asma@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','asma','Lifti','2022-07-20','Adress 7','dsf',10,NULL,NULL),(8,'anas@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','anas','Bouda','2022-07-20','Adress 8','fdsdf',20,NULL,NULL),(9,'salma@gmail.com','$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','salma','Nounou','2022-07-20','Adress 9','fsf',30,NULL,NULL),(10,'zak@gmail.com','$2a$10$V6kPXXZpxFPuH5llPbCVae8vM8A1xqBHGyrV2m35OHijOs2I/X/0.','zak',NULL,NULL,NULL,NULL,0,NULL,NULL),(15,'new1@gmail.com','$2a$10$ENSAHfeEEDq9ftD5OKIaA.70t2NAk6kvxoIPFIPXB9NxIBx6Teu5u','new1',NULL,NULL,NULL,NULL,0,NULL,NULL),(17,'bb@gmail.com','$2a$10$eMe/yZUH0RtP6UiHq4gyZeVo7Wiqh7w82B85Zhei2xzrTO5etqpJi','b',NULL,NULL,NULL,NULL,0,NULL,NULL),(22,'f@gmail.com','$2a$10$9KN4O.KfQuVZobWAHpqtoeH3smsAB3Uehuj56BpIB9cSAGlXN47Pm','f','ffff',NULL,NULL,NULL,0,NULL,NULL),(23,'aa@aa.com','$2a$10$R8IPt0ppmIH2eApe/1X97.r2ShxXvXaocpKNNnbB0jpuTNsmaSroK','aamodm2','bbmod2',NULL,'adress33mod2','05226699882',70,'swift2','1234562'),(24,'zz@zz.com','$2a$10$JhmWrclroophsmEocqEhwupFDzYgcpKD/i6r4J5W.qvUprCSh14.G','zizou',NULL,NULL,NULL,NULL,0,NULL,NULL),(37,'sophie@gmail.com','$2a$10$efyInKktIL0pf96bTr0u3ew/d5G9Q8pxHySMkHEASo/AHi5.Nlp2i','sophie','',NULL,'','',13,'',''),(38,'alice@gmail.com','$2a$10$kMJIEBZ52YrOYM1p9GlMwu9XOOADhJ20jmavdPCFogK.dqMfClNPC','Alice','Nada',NULL,'','',92,'',''),(39,'email@gmail.com','$2a$10$zv2vsOZDJAntOWXFhLTh.OX1m4gFjliQzbcZXEwjy10EYEaXcVKDi','first','last',NULL,NULL,NULL,0,NULL,NULL),(42,'moncomptepro.fb@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +178,7 @@ CREATE TABLE `user_role` (
   KEY `FK64i80m793j4ur4mwxsq3dqypi` (`user_id_role`),
   CONSTRAINT `FK64i80m793j4ur4mwxsq3dqypi` FOREIGN KEY (`user_id_role`) REFERENCES `user` (`id`),
   CONSTRAINT `FKa68196081fvovjhkek5m97n3y` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +187,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (1,22,1),(2,23,1),(4,2,1),(5,3,1),(6,4,1),(21,37,1),(23,38,1),(24,39,1),(25,42,1),(28,1,1);
+INSERT INTO `user_role` VALUES (1,22,1),(2,23,1),(4,2,1),(5,3,1),(6,4,1),(21,37,1),(23,38,1),(24,39,1),(25,42,1),(29,1,1);
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-01 14:42:18
+-- Dump completed on 2022-12-03 18:00:01
